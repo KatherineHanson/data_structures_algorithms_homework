@@ -1,3 +1,5 @@
+'use strict';
+
 // This solution based on static array example code provided by Yogi Patel
 function StaticArray(size) {
     this.size = size;
