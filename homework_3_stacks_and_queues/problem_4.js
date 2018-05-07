@@ -51,6 +51,8 @@ var Stack = (function () {
                     depth++;
                 } else if(string[i] == ')') {
                     depth--;
+                } else {
+                    return false;
                 }  
                 if (depth < 0) return false;
             }
@@ -67,3 +69,4 @@ console.log('new Stack().balanced(\'((())())()\') should be true: ', new Stack()
 console.log('new Stack().balanced(\')()(\') should be false: ', new Stack().balanced(')()('));
 console.log('new Stack().balanced(\'())\') should be false: ', new Stack().balanced('())'));
 console.log('new Stack().balanced(4) should be false: ', new Stack().balanced(4));
+console.log('new Stack().balanced(\'hi\') should be false: ', new Stack().balanced('hi'));
