@@ -23,6 +23,9 @@ var Stack = (function () {
 
     // pop() removes and returns the most recently added item
     Stack.prototype.pop = function() {
+        if (this.isEmpty()) {
+          return null;
+        }
         var first = this.head.next;
         this.head.next = first.next;
         this.count--;
@@ -67,3 +70,5 @@ console.log('stack.length() should be 2: ', stack.length());
 stack.pop()
 stack.pop()
 console.log('stack.length() should be 0: ', stack.length());
+console.log('stack.peek() should be null: ', stack.peek());
+console.log('stack.pop() should be null: ', stack.pop());

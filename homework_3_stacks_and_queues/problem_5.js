@@ -23,6 +23,10 @@ var Queue = (function () {
 
     // dequeue() removes and returns the item at the front of the queue
     Queue.prototype.dequeue = function() {
+        if (this.isEmpty()) {
+            return null;
+        }
+
         var first = this.head.next;
         this.head.next = first.next;
         this.count--;
@@ -66,3 +70,4 @@ console.log('queue.size() should be 2: ', queue.size());
 queue.dequeue()
 queue.dequeue()
 console.log('queue.size() should be 0: ', queue.size());
+console.log('queue.dequeue() should return null: ', queue.dequeue());
