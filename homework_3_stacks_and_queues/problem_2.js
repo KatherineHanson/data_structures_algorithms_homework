@@ -23,10 +23,6 @@ var Stack = (function () {
 
     // pop() removes and returns the most recently added item
     Stack.prototype.pop = function() {
-        if (this.isEmpty()) {
-            throw new Error("cannot pop() when stack is empty, check isEmpty() before pop()");
-        }
-
         var first = this.head.next;
         this.head.next = first.next;
         this.count--;
