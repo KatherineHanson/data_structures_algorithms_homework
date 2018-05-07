@@ -23,10 +23,6 @@ var Queue = (function () {
 
     // dequeue() removes and returns the item at the front of the queue
     Queue.prototype.dequeue = function() {
-        if (this.isEmpty()) {
-            throw new Error("can not dequeue when queue is empty, check isEmpty() before dequeue()");
-        }
-
         var first = this.head.next;
         this.head.next = first.next;
         this.count--;
@@ -62,7 +58,7 @@ console.log('queue.head.next.next.item should be 3: ', queue.head.next.next.item
 console.log('queue.head.next.next.next.item should be \'cats\': ', queue.head.next.next.next.item);
 console.log('queue.peek() should be 4: ', queue.peek());
 console.log('queue.size() should be 3: ', queue.size());
-console.log('queue.dequeue() should return 4', queue.dequeue())
+console.log('queue.dequeue() should return 4:  ', queue.dequeue())
 console.log('queue.head.next.next.next should be null: ', queue.head.next.next.next);
 console.log('queue.peek() should be 3: ', queue.peek());
 console.log('queue.isEmpty() should be false: ', queue.isEmpty());
