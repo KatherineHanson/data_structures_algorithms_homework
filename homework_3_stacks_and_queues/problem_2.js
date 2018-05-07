@@ -68,3 +68,6 @@ console.log('stack.head.next.next.next should be null: ', stack.head.next.next.n
 console.log('stack.peek() should be 3: ', stack.peek());
 console.log('stack.isEmpty() should be false: ', stack.isEmpty());
 console.log('stack.length() should be 2: ', stack.length());
+stack.pop()
+stack.pop()
+console.log('stack.length() should be 0: ', stack.length());
