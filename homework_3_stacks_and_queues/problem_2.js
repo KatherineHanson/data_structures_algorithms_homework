@@ -1,9 +1,9 @@
 // Implement a stack. Feel free to use your dynamic array 
 /// implementation from homework 2 or your programming language’s 
 // standard library’s list (just don’t use any stack-specific 
-// functionality). 
+// functionality).
+//  Your stack should start empty and support the following methods:
 
-// Your stack should start empty and support the following methods:
 var Stack = (function () {
     function Node(item, node) {
       this.item = item;
