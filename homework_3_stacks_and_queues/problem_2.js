@@ -1,65 +1,70 @@
-// Implement a stack. Feel free to use your dynamic array implementation
-// from homework 2 or your programming language’s standard library’s list
-// (just don’t use any stack-specific functionality).
+// Implement a stack. Feel free to use your dynamic array 
+/// implementation from homework 2 or your programming language’s 
+// standard library’s list (just don’t use any stack-specific 
+// functionality). 
 
-// Stack class
-class Stack {
-
-    // Your stack should start empty
-    constructor()
-    {
-        this.items = [];
+// Your stack should start empty and support the following methods:
+var Stack = (function () {
+    function Node(item, node) {
+      this.item = item;
+      this.next = node;
     }
 
-    // and support the following methods:
+    function Stack() {
+        this.head = new Node(undefined, null);
+        this.count = 0;
+    }
 
     // push(item) adds the item to the top of the stack
-    push(item)
-    {
-        // push item into the items
-        this.items.push(item);
-    }
+    Stack.prototype.push = function(item) {
+        this.head.next = new Node(item, this.head.next);
+        this.count++;
+    };
 
     // pop() removes and returns the most recently added item
-    pop()
-    {
-        if (this.items.length == 0)
-            return "Underflow";
-        return this.items.pop();
-    }
+    Stack.prototype.pop = function() {
+        if (this.isEmpty()) {
+            throw new Error("cannot pop() when stack is empty, check isEmpty() before pop()");
+        }
+
+        var first = this.head.next;
+        this.head.next = first.next;
+        this.count--;
+        return first.item;
+    };
 
     // peek() returns the most recently added item, but does not remove it
-    peek()
-    {
-        return this.items[this.items.length - 1];
-    }
+    Stack.prototype.peek = function() {
+        var first = this.head.next;
+        return first !== null ? first.item : null;
+    };
 
     // isEmpty() returns true if the stack is empty
-    isEmpty()
-    {
-        return this.items.length == 0;
-    }
+    Stack.prototype.isEmpty = function() {
+        return this.head.next === null;
+    };
 
     // size() returns the number of items on the stack
-    size()
-    {
-      return this.items.length;
-    }
-}
+    Stack.prototype.length = function() {
+        return this.count;
+    };
 
-var stack = new Stack()
-console.log('this should be an empty stack: ', stack);
+    return Stack;
+})();
+
+
+var stack = new Stack();
+console.log('stack.length() should be 0: ', stack.length());
 stack.push(4);
-stack.push(2);
-stack.push(30);
-console.log('stack.items[0] should return 4: ', stack.items[0]);
-console.log('stack.peek() should return 30: ', stack.peek());
-console.log('stack.isEmpty() should return false: ', stack.isEmpty());
-console.log('stack.size() should return 3: ', stack.size());
-console.log('stack.pop() should return 30', stack.pop());
-console.log('stack.peek() should return 2: ', stack.peek());
-stack.pop();
-stack.pop();
-console.log('stack.isEmpty() should return true: ', stack.isEmpty());
-console.log('stack.size() should return 0: ', stack.size());
-console.log('stack.peek() should return undefined: ', stack.peek());
+stack.push(3);
+stack.push('cats');
+console.log('stack.head.next.item should be \'cats\': ', stack.head.next.item);
+console.log('stack.head.next.next.item should be 3: ', stack.head.next.next.item);
+console.log('stack.head.next.next.next.item should be 4: ', stack.head.next.next.next.item);
+console.log('stack.peek() should be cats: ', stack.peek());
+console.log('stack.length() should be 3: ', stack.length());
+console.log('stack.pop() should return \'cats\'', stack.pop())
+console.log('stack.head.next.next.next should be null: ', stack.head.next.next.next);
+console.log('stack.peek() should be 3: ', stack.peek());
+console.log('stack.isEmpty() should be false: ', stack.isEmpty());
+console.log('stack.length() should be 2: ', stack.length());
