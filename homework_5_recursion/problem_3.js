@@ -12,8 +12,6 @@ function sum_nested(nums){
       nums = nums.slice(1);
       return sum + sum_nested(nums);
   }
-
-  return sum;
 }
 
 var nested_nums = [[1, 2], [3, 4], [5]];

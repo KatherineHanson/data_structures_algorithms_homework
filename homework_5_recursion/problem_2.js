@@ -9,10 +9,12 @@ function is_palindrome(string)  {
     
     if (array.length < 2)
       return true;
-    else if (firstChar !== lastChar)
-      return false;
+    else{
+      if (firstChar !== lastChar)
+        return false;
   
       return is_palindrome(array.join(''));
+    }
   }
   
   var should_be_true = is_palindrome('a')
