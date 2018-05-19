@@ -3,7 +3,9 @@
 // That's it, no catch.
 
 function print_values(chars){
-  if(chars.length > 0){
+  if (chars.length <= 0)
+    return '';
+  else{
     console.log(chars.shift());
     return print_values(chars);
   }

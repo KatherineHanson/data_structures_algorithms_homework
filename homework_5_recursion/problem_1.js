@@ -7,10 +7,12 @@ function is_palindrome(chars)  {
   
   if (chars.length < 2)
     return true;
-  else if (firstChar !== lastChar)
-    return false;
+  else {
+    if (firstChar !== lastChar)
+      return false;
 
     return is_palindrome(chars);
+  }
 }
 
 var a = ['a']

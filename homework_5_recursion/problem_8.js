@@ -2,10 +2,13 @@
 // but it prints them in reverse order.
 
 function print_values(chars){
-    if(chars.length > 0){
+    if (chars.length <= 0)
+      return '';
+    else{
       console.log(chars.pop());
       return print_values(chars);
     }
   }
   
   console.log(print_values(['h','e','l','l','o']));
+  console.log(print_values([]));

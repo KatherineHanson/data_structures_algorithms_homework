@@ -13,10 +13,8 @@
 // 3 + 1
 
 function step_ways(n){
-  if (n === 1)
-    return 1;
-  else if (n === 2)
-    return 2;
+  if (n === 1 || n === 2)
+    return n;
   else if (n === 3)
     return 4;
   else
