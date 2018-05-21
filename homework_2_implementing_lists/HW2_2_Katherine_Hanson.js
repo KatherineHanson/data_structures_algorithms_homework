@@ -1,3 +1,10 @@
+// Another implementation of a list utilizes a linked list. 
+// As discussed in class, a linked list is a series of nodes 
+// connected together. A node contains some data and a pointer 
+// to the next node in the list. The list’s last node points 
+// to null (None, nil, etc). You’ll probably want to write a 
+// small Node class similar to what we did in class.
+
 'use strict';
 
 class Node {
