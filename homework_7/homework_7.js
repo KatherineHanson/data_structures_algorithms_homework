@@ -2,37 +2,16 @@
 
 // Homework 7 -- Morse Code
 
-var morse = new Object();
-  
-morse['a'] = '.-';
-morse['b'] = '-...';
-morse['c'] = '-.-.';
-morse['d'] = '-..';
-morse['e'] = '.';
-morse['f'] = '..-.';
-morse['g'] = '--.';
-morse['h'] = '....';
-morse['i'] = '..';
-morse['j'] = '.---';
-morse['k'] = '-.-';
-morse['l'] = '.-..';
-morse['m'] = '--';
-morse['n'] = '-.';
-morse['o'] = '---';
-morse['p'] = '.--.';
-morse['q'] = '--.-';
-morse['r'] = '.-.';
-morse['s'] = '...';
-morse['t'] = '-';
-morse['u'] = '..-';
-morse['v'] = '...-';
-morse['w'] = '.--';
-morse['x'] = '-..-';
-morse['y'] = '-.--';
-morse['z'] = '--..';
-morse['.'] = '.-.-.-';
-morse[','] = '--..--';
-morse[' '] = '/';
+var create_morse = function() {
+  var i;
+  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','.',',',' '];
+  var encoded_chars = ['.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','--','-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..','.-.-.-','--..--','/'];
+  var morse = new Object();
+  for (i = 0; i < alphabet.length; i++){
+    morse[alphabet[i]] = encoded_chars[i];
+  }
+  return morse;
+}
 
 // 1. For our first problem, write a function that converts a given word into
 //    Morse Code. Only a single word will be supplied but it may end in an
@@ -134,6 +113,9 @@ function encode_words(words) {
     return translation;
   }
 }
+
+// Creating Morse
+var morse = create_morse();
 
 // Checking encode_word function
 var blank = '';
