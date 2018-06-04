@@ -5,16 +5,22 @@
 
 function majority(nums) {
     var i;
-    var key;
+    var x;
+    var k;
     var count = 0;
     var numbers = {};
 
     for(i = 0; i < nums.length; i++){
-      key = nums[i];
-      numbers[key] = count++;
+      k = nums[i];
+      numbers[k] = count++;
     }
-    return numbers;
+
+    for(let [key, value] of Object.entries(numbers)){
+      if(value > (nums.length / 2))
+        return key;
+      return -1;
+    } 
 }
 
 var yesMajority = [-1,5,5,5,5,5,5,5,5,5];
-console.log('Should return the majority: ', majority(yesMajority))
+console.log('Should return the majority element: ', majority(yesMajority))
