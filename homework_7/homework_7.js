@@ -114,6 +114,37 @@ function encode_words(words) {
   }
 }
 
+// 5. Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. For example, "cab" can be written as "-.-.-....-", (which is the concatenation "-.-." + "-..." + ".-"). We'll call such a concatenation, the transformation of a word.
+// Return the number of different transformations among all words we have.
+// Example:
+// Input: words = ["gin", "zen", "gig", "msg"]
+// Output: 2
+// Explanation: 
+// The transformation of each word is:
+// "gin" -> "--...-."
+// "zen" -> "--...-."
+// "gig" -> "--...--."
+// "msg" -> "--...--."
+// There are 2 different transformations, "--...-." and "--...--.".
+// Note:
+// The length of words will be at most 100.
+// Each words[i] will have length in range [1, 12].
+// words[i] will only consist of lowercase letters.
+function unique_morse_representations(words) {
+  if (words.length > 100)
+    return "Too long! Enter a shorter array of words."
+  var i, x;
+  var arr = [];
+  for (i = 0; i < words.length; i++){
+    if (words[i].length < 1 || words[i].length > 12)
+      return 'Invalid input! Each word\'s length should range from 1 to 12.'
+    if (!arr.includes(encode_word(words[i], morse)))
+      arr.push(encode_word(words[i], morse));
+  }
+  return arr.length;
+};
+
+
 // Creating Morse
 var morse = create_morse();
 
@@ -182,3 +213,14 @@ console.log('Should return \'one two\' translated to morse code: ', encode_words
 console.log('Should return \'one two.\' translated to morse code: ', encode_words(one_two_PERIOD));
 console.log('Should return \'one, two, and three.\' translated to morse code: ', encode_words(one_COMMA_two_COMMA_and_three_PERIOD));
 console.log('Should return \'first. second. third.\' translated to morse code: ', encode_words(first_PERIOD_second_PERIOD_third_PERIOD));
+console.log();
+
+// Checking unique_morse_representations
+var top_girl_names = ['Emma','Olivia','Ava','Isabella','Sophia','Amelia','Mia','Charlotte','Harper','Mila','Aria','Ella','Evelyn','Avery','Abigail','Emily','Riley','Luna','Scarlett','Chloe','Layla','Sofia','Lily','Ellie','Zoey','Madison','Elizabeth','Grace','Penelope','Victoria','Nora','Bella','Aubrey','Hannah','Camila','Stella','Paisley','Savannah','Addison','Skylar','Maya','Natalie','Emilia','Elena','Nova','Eva','Violet','Niamey','Audrey','Zoe','Brooklyn','Lucy','Hailey','Eleanor','Lillian','Aaliyah','Leah','Claire','Alice','Sarah','Kennedy','Kinsley','Sophie','Adeline','Arya','Willow','Gabriella','Quinn','Naomi','Peyton','Anna','Eliana','Isla','Everly','Ariana','Maria','Julia','Adalynn','Rylee','Athena','Cora','Valentina','Aubree','Nevaeh','Caroline','Autumn','Gianna','Brielle','Ruby','Serenity','Piper','Mackenzie','Delilah','Sadie','Jade','Clara','Emery','Isabelle','Ivy','Hadley','Arianna','Kaylee','Liliana','Leilani'];
+var top_boy_names = ['Liam','Noah','Noah','Oliver','Logan','Mason','Lucas','Elijah','Ethan','James','Aiden','Carter','Sebbastian','Alexander','Jackson','Michael','Michael','Michael','Jacob','Benjamin','William','Daniel','Luke'];
+var invalid_top_boy_names_1 = ['','Noah','Noah','Oliver','Logan','Mason','Lucas','Elijah','Ethan','James','Aiden','Carter','Sebbastian','Alexander','Jackson','Michael','Michael','Michael','Jacob','Benjamin','William','Daniel','Luke'];
+var invalid_top_boy_names_2 = ['Noah','Noah','Oliver','Logan','Mason','Lucas','Elijah','Ethan','James','Aiden','Carter','Sebbastian','Alexander','Jackson','Michael','Michael','Michael','Jacob','Benjamin','William','Daniel','Luke','Supercalifragilisticexpialidocious'];
+console.log('The top_girl_names array has the following length: ', top_girl_names.length);
+console.log('The top_girl_names array should be invalid input because of its length: ', unique_morse_representations(top_girl_names));
+console.log('The top_boy_names array should return the number of different transformations for it: ', unique_morse_representations(top_boy_names));console.log(unique_morse_representations(invalid_top_boy_names_1));
+console.log(unique_morse_representations(invalid_top_boy_names_2));
