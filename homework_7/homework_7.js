@@ -215,7 +215,7 @@ console.log('Should return \'one, two, and three.\' translated to morse code: ',
 console.log('Should return \'first. second. third.\' translated to morse code: ', encode_words(first_PERIOD_second_PERIOD_third_PERIOD));
 console.log();
 
-// Checking unique_morse_representations
+// Checking unique_morse_representations function
 var top_girl_names = ['Emma','Olivia','Ava','Isabella','Sophia','Amelia','Mia','Charlotte','Harper','Mila','Aria','Ella','Evelyn','Avery','Abigail','Emily','Riley','Luna','Scarlett','Chloe','Layla','Sofia','Lily','Ellie','Zoey','Madison','Elizabeth','Grace','Penelope','Victoria','Nora','Bella','Aubrey','Hannah','Camila','Stella','Paisley','Savannah','Addison','Skylar','Maya','Natalie','Emilia','Elena','Nova','Eva','Violet','Niamey','Audrey','Zoe','Brooklyn','Lucy','Hailey','Eleanor','Lillian','Aaliyah','Leah','Claire','Alice','Sarah','Kennedy','Kinsley','Sophie','Adeline','Arya','Willow','Gabriella','Quinn','Naomi','Peyton','Anna','Eliana','Isla','Everly','Ariana','Maria','Julia','Adalynn','Rylee','Athena','Cora','Valentina','Aubree','Nevaeh','Caroline','Autumn','Gianna','Brielle','Ruby','Serenity','Piper','Mackenzie','Delilah','Sadie','Jade','Clara','Emery','Isabelle','Ivy','Hadley','Arianna','Kaylee','Liliana','Leilani'];
 var top_boy_names = ['Liam','Noah','Noah','Oliver','Logan','Mason','Lucas','Elijah','Ethan','James','Aiden','Carter','Sebbastian','Alexander','Jackson','Michael','Michael','Michael','Jacob','Benjamin','William','Daniel','Luke'];
 var invalid_top_boy_names_1 = ['','Noah','Noah','Oliver','Logan','Mason','Lucas','Elijah','Ethan','James','Aiden','Carter','Sebbastian','Alexander','Jackson','Michael','Michael','Michael','Jacob','Benjamin','William','Daniel','Luke'];
