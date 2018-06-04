@@ -3,8 +3,8 @@
 // 4. As before, we need the opposite version of the previous function, one that
 //    encodes words.
 
-function decode_words(encoded_words) {
-    var letters = encoded_words.split('');
+function encode_words(words) {
+    var letters = words.split('');
     var i;
     var letter;
     var translation = '';
@@ -40,7 +40,7 @@ function decode_words(encoded_words) {
     morse[','] = '--..--';
     morse[' '] = '/';
   
-    if(encoded_words.length === 0)
+    if(words.length === 0)
       return '';
     else {
       for(i = 0; i < letters.length; i++){
@@ -65,10 +65,10 @@ function decode_words(encoded_words) {
   var one_COMMA_two_COMMA_and_three_PERIOD = 'one, two, and three.';
   var first_PERIOD_second_PERIOD_third_PERIOD = 'first. second. third.';
 
-  console.log('Should return \'\' translated to morse code: ', decode_words(blank));
-  console.log('Should return \'one\' translated to morse code: ', decode_words(one));
-  console.log('Should return \'one.\' translated to morse code: ', decode_words(one_PERIOD));
-  console.log('Should return \'one two\' translated to morse code: ', decode_words(one_two));
-  console.log('Should return \'one two.\' translated to morse code: ', decode_words(one_two_PERIOD));
-  console.log('Should return \'one, two, and three.\' translated to morse code: ', decode_words(one_COMMA_two_COMMA_and_three_PERIOD));
-  console.log('Should return \'first. second. third.\' translated to morse code: ', decode_words(first_PERIOD_second_PERIOD_third_PERIOD));
+  console.log('Should return \'\' translated to morse code: ', encode_words(blank));
+  console.log('Should return \'one\' translated to morse code: ', encode_words(one));
+  console.log('Should return \'one.\' translated to morse code: ', encode_words(one_PERIOD));
+  console.log('Should return \'one two\' translated to morse code: ', encode_words(one_two));
+  console.log('Should return \'one two.\' translated to morse code: ', encode_words(one_two_PERIOD));
+  console.log('Should return \'one, two, and three.\' translated to morse code: ', encode_words(one_COMMA_two_COMMA_and_three_PERIOD));
+  console.log('Should return \'first. second. third.\' translated to morse code: ', encode_words(first_PERIOD_second_PERIOD_third_PERIOD));
