@@ -1,6 +1,5 @@
 var a = '';
 var b = '';
-var f;
 
 class Node {
   constructor(data){
